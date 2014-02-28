@@ -3,7 +3,7 @@
 
 echo "who do you want me to remove? Pls insert Pennkey."
 
-cat studentlist.csv 
+cat studentlist.csv | grep -w $1 |  
 
 echo "are you sure you want to delete user $1? (Y/n)"
 read bo
