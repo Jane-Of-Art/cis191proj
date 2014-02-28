@@ -1,5 +1,10 @@
 #!/bin/sh 
 # args: pennkey
+
+echo "who do you want me to remove? Pls insert Pennkey."
+
+cat studentlist.csv 
+
 echo "are you sure you want to delete user $1? (Y/n)"
 read bool
 if (bool=="Y"); then 
