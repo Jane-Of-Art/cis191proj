@@ -1,16 +1,20 @@
-#!/bin/sh 
-# args: assignment name
+#!/bin/bash 
+# args: assignmentname
  
-echo -n "what is the max score for $1?"
+echo -n "what is the max score for $1? "
 read max
-sed -n "1 s/$/, $1/" studentlist.csv
-sed -n "2 s/$/, $max/" studentlist.csv
-lines = $(wc -l studentlist.csv)
-echo $lines
-for i in $(seq 3 $lines)
+IFS=$'\n' read -d '' -r -a lines < studentlist.csv
+numlines=${#lines[@]}
+lines[0]="${lines[0]},$1"
+lines[1]="${lines[1]},$max"
+output="${lines[0]}\n${lines[1]}"
+for i in $(seq 2 $(($numlines-1)))
 do
-	tempkey= "next student" #get pennkey first word of line $i NEED TO WRITE
-	echo -n "What is the score for $tempkey?"
+	IFS=$',' read -d '' -r -a vars <<< "${lines[$i]}"
+	echo -n "what is the score for ${vars[0]}? "
 	read score
-	sed -n "$i s/$/, $score/" studentlist.csv
+	lines[$i]="${lines[$i]},$score"
+	output="$output\n${lines[$i]}"
 done
+echo "you are done with adding grades for $1!"
+echo -e $output > studentlist.csv
