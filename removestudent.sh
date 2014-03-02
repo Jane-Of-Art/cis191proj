@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/bash 
 # args: pennkey
 
 lineNum=$(cut -d',' -f1 studentlist.csv | grep -wn $1 | cut -d : -f1)
