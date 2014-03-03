@@ -2,7 +2,6 @@
 # args: pennkey
 
 lineNum=$(cut -d',' -f1 studentlist.csv | grep -wn $1 | cut -d : -f1)
-# $(cut -d',' -f1 studentlist.csv | grep -cw $1) -lt 1 
 if [ -z $lineNum ]; then 
 	echo  "sorry, student is not listed in the file."
 else	
