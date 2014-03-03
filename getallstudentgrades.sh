@@ -1,5 +1,4 @@
 #!/bin/bash 
-# args: n/a
 IFS=$'\n' read -d '' -r -a lines < studentlist.csv
 numlines=${#lines[@]}
 IFS=',' read -d '' -r -a line1 <<< "${lines[0]}"

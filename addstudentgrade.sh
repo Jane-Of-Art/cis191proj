@@ -1,7 +1,10 @@
 #!/bin/bash 
-# args: pennkey, assignmentname
- 
-echo -n "what did $1 get on $2?"
+
+echo -n "enter student pennkey: "
+read pennkey
+echo -n "enter assignment name: "
+read assign 
+echo -n "what did $pennkey get on $assign?"
 read score
 IFS=$'\n' read -d '' -r -a lines < studentlist.csv
 numlines=${#lines[@]}
@@ -11,7 +14,7 @@ colnum=$((1-2))
 output="${lines[0]}\n${lines[1]}"
 for j in $(seq 3 $(($numvars-1)))
 do
-	if ["$2" == "${line1[$j]}"]
+	if [[ "$assign" == "${line1[$j]}" ]]
 	then
 		colnum=$j
 	fi
@@ -23,7 +26,7 @@ fi
 for i in $(seq 2 $(($numlines-1)))
 do
 	IFS=$',' read -d '' -r -a vars <<< "${lines[$i]}"
-	if ["$1" == "${vars[0]}"]
+	if [[ "$pennkey" == "${vars[0]}" ]]
 	then
 		vars[$colnum]="$score"
 	fi
@@ -34,5 +37,5 @@ do
 	done
 	output="$output\n$temp"
 done
-echo "Grade has been changed for $1 on $2"
-echo -e $output
+echo "Grade has been changed to $score for $pennkey on $assign"
+echo -e $output > studentlist.csv

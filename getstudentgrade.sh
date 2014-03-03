@@ -1,6 +1,7 @@
 #!/bin/bash 
-# args: pennkey
-studentline=$(grep "^$1" studentlist.csv)
+echo -n "enter student pennkey:: "
+read pennkey
+studentline=$(grep "^$pennkey" studentlist.csv)
 IFS=$'\n' read -d '' -r -a lines < studentlist.csv
 IFS=',' read -d '' -r -a line1 <<< "${lines[0]}"
 IFS=',' read -d '' -r -a line2 <<< "${lines[1]}"
