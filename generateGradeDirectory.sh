@@ -22,10 +22,10 @@ if [[ $colNum -eq 0 ]]; then
 else
 	maxGrade=${line2[$(($colNum-1))]}
 	dir=$(ls -l | grep $assignmentLabel | grep ^d)
-	if [[ -z $dir ]]; then
-		mkdir $assignmentLabel
+	if [[ -n $dir ]]; then
+		rm -r $assignmentLabel
 	fi
-	rm -r $assignmentLabel/*
+		mkdir $assignmentLabel
 	numLines=${#lines[@]}
 	for i in $(seq 3 $numLines)
 	do
