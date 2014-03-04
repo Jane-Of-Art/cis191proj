@@ -10,7 +10,7 @@ if [ -z $lineNum ]; then
 else 
 	printf "Please input name of assignment: "
 	read assignmentLabel
-	test=$(head -n 1 studentlist.csv | grep $assignmentLabel)
+	test=$(head -n 1 studentlist.csv | grep -w $assignmentLabel)
 	if [[ -z $test ]]; then	
 		printf "Sorry, this assignment is not listed in the file.\n"		
 	else
@@ -20,8 +20,13 @@ else
 		if [[ -z $file && -z $dir ]]; then
 			printf "Grade file does not exist.\n"
 			printf "Please run \"./generateOneGrade.sh\" or \"./generateGradeDirectory.sh\"\n." 
-		else
-					
+		elif [[ -n $file ]]; then
+			lineNum=$(cut -d',' -f1 studentlist.csv | grep -wn $pennkey | cut -d : -f1)
+			lastName=$(sed -n ${lineNum}p studentlist.csv | cut -d ',' -f2)
+			firstName=$(sed -n ${lineNum}p studentlist.csv | cut -d ',' -f3)
+			subject="$(${assignmentLabel} grade for ${firstName} ${lastName})" 
+			mail -s $($subject) "$(${pennkey}@seas.upenn.edu)" < $filename
+			echo reached
 		fi
 	fi
 fi
