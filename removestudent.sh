@@ -1,15 +1,17 @@
 #!/bin/bash 
-# args: pennkey
 
-lineNum=$(cut -d',' -f1 studentlist.csv | grep -wn $1 | cut -d : -f1)
+printf "Please input student's PennKey: "
+read pennKey
+
+lineNum=$(cut -d',' -f1 studentlist.csv | grep -wn $pennKey | cut -d : -f1)
 if [ -z $lineNum ]; then 
 	echo  "sorry, student is not listed in the file."
 else	
-	printf "are you sure you want to delete student $1? (Y/n) "
+	printf "are you sure you want to delete student $pennKey? (Y/n) "
 	read bo
 	if [ x"$bo" = x"Y" ]; then 
-		echo "you said yes, student $1 will now be deleted."
-		# delete line here
+		echo "you said yes, student $pennKey will now be deleted."
+		# deletes line 
 		sed ${lineNum}d studentlist.csv > tmp.csv 
 		cat < tmp.csv > studentlist.csv
 		rm tmp.csv
