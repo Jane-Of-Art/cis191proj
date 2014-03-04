@@ -10,7 +10,6 @@ if [ -z $lineNum ]; then
 else 
 	printf "Please input name of assignment: "
 	read assignmentLabel
-	
 	IFS=$'\n' read -d '' -r -a lines < studentlist.csv
 	IFS=',' read -d '' -r -a line1 <<< "${lines[0]}"
 	IFS=',' read -d '' -r -a line2 <<< "${lines[1]}"
