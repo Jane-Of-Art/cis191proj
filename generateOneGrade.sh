@@ -27,14 +27,14 @@ else
 	if [[ $colNum -eq 0 ]]; then	
 		printf "Sorry, this assignment is not listed in the file.\n"		
 	else
-		touch ${pennkey}_${assignmentlabel}_grade
 		lastName=$(sed -n ${lineNum}p studentlist.csv | cut -d ',' -f2)
 		firstName=$(sed -n ${lineNum}p studentlist.csv | cut -d ',' -f3)
 		grade=$(sed -n ${lineNum}p studentlist.csv | cut -d ',' -f${colNum})
 		maxGrade=${line2[$(($colNum-1))]}
 		output="${firstName} ${lastName} (${pennkey})\n"
 		output2="${assignmentLabel}\nGrade: ${grade}/${maxGrade}\n"
-		printf "${firstName} ${lastName} (${pennkey})\n"
-		printf "${assignmentLabel}\nGrade: ${grade}/${maxGrade}\n"
+		filename="${pennkey}_${assignmentLabel}_grade"
+		printf "${firstName} ${lastName} (${pennkey})\n" > $filename
+		printf "${assignmentLabel}\nGrade: ${grade}/${maxGrade}\n" >> $filename
 	fi
 fi
