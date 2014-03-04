@@ -23,7 +23,6 @@ else
 			colNum=$(($i+1))	
 		fi
 	done
-	# if [ -z "$(head -n 1 studentlist.csv | grep -w ${assignmentLabel})" ]; then
 	if [[ $colNum -eq 0 ]]; then	
 		printf "Sorry, this assignment is not listed in the file.\n"		
 	else
