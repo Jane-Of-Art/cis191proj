@@ -10,7 +10,7 @@ if [ -z $lineNum ]; then
 else 
 	printf "Please input name of assignment: "
 	read assignmentLabel
-	if [ -z $(head -n 1 studentlist.csv | grep -w ${assignmentLabel}) ]; then
+	if [ -z "$(head -n 1 studentlist.csv | grep -w ${assignmentLabel})" ]; then
 		printf "Sorry, this assignment is not listed in the file.\n"		
 	else
 		touch ${pennkey}_${assignmentlabel}_grade
