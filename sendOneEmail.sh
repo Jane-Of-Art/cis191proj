@@ -24,8 +24,14 @@ else
 			lineNum=$(cut -d',' -f1 studentlist.csv | grep -wn $pennkey | cut -d : -f1)
 			lastName=$(sed -n ${lineNum}p studentlist.csv | cut -d ',' -f2)
 			firstName=$(sed -n ${lineNum}p studentlist.csv | cut -d ',' -f3)
-			subject="$(${assignmentLabel} grade for ${firstName} ${lastName})" 
-			mail -s $($subject) "$(${pennkey}@seas.upenn.edu)" < $filename
+			subject="${assignmentLabel} grade for ${firstName} ${lastName}" 
+			dos2unix $filename
+			contents="$(cat $filename) ^D"
+			# mail -s $($subject) "$(${pennkey}@seas.upenn.edu)" <<<  $($contents)
+			mail -s $($subject) "$(${pennkey}@seas.upenn.edu)" <  $filename
+			# echo $contents | sed s/' '/'\ '/g | mail -s $($subject) "$(${pennkey}@seas.upenn.edu)" 
+			mail -s "testfromscript" loh.lianhan@gmail.com < tux_exam1_grade
+			mail -s "testfromscript" lianhan@seas.upenn.edu < tux_exam1_grade
 			echo reached
 		fi
 	fi
