@@ -21,8 +21,7 @@ if [[ $colNum -eq 0 ]]; then
 	printf "Sorry, this assignment is not listed in the file.\n"		
 else
 	maxGrade=${line2[$(($colNum-1))]}
-	dir=$(ls -l | grep $assignmentLabel | grep ^d)
-	if [[ -n $dir ]]; then
+	if [[ -d $assignmentLabel ]]; then
 		rm -r $assignmentLabel
 	fi
 		mkdir $assignmentLabel
