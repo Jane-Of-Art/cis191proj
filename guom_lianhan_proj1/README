@@ -1,0 +1,64 @@
+cis191proj
+==========
+Authors: Jane Minghui Guo, Loh Lianhan
+
+This suite of tools consists of scripts that prompts the user for all information necessary. The invariant in the csv file is that there are no spaces between items in each line, only a comma. In order to be user-friendly, each script is entirely interactive and prompts users for each input. 
+
+Instructions for users
+==========
+In order to run each script, please type in the command as listed for each script (e.g. "./addstudent.sh"). You will be prompted to enter the necessary information. Please note that the scripts work for the specific .csv file "studentlist.csv". Please rename your grade file accordingly. 
+
+./addstudent.sh
+==========
+Calling the above command adds a new student to the student list. the default graes for the student are all zeroes. The user will be prompted for penkey, last name, and first name.
+
+./removestudent.sh
+==========
+Calling the above command removes a student from the student list. The user will be notified if the student entered does not exist. The user will be prompted for the pennkey of the student to be removed.
+
+./addassignment.sh
+==========
+Calling the above command adds a new assignment to the file. The user will be prompted for the assignment name and max score, then the score of each individual student.
+
+./addstudentgrade.sh
+==========
+Calling the above command adds one specific student grade to the file. The user will be prompted for the student pennkey and assignment name, then the grade obtained. Error-checking is performed to check if the student and the assignment exists in the .csv file. 
+
+./getstudentgrade.sh
+==========
+Calling the above command generates a list of a student's grades as well as the total grade out of points posible. The user will be prompted for the pennkey of the student.
+
+./getallstudentgrades.sh
+==========
+Calling the above command generates a list of all students and their grades out of points possible. The user does not need to input further information. 
+
+==========
+
+./generateOneGrade.sh
+==========
+Calling the above command asks for the pennkey and assignment label from the user and generates one grade file for the specific assignment. Error-checking is performed to ensure the student's pennkey and assignment exists in the .csv file.
+
+
+./generateGradeDirectory.sh
+==========
+Calling the above command asks for the assignment label from the user and creates a directory for the assignment and generates a grade file for each student for the specific assignment. Error-checking is performed to ensure the assignment label exists in the .csv file.
+
+
+./sendOneEmail.sh
+==========
+Calling the above command asks for the pennkey and assignment label from the user and sends an email to the student with his grade file in the body of the email. Error-checking is performed to ensure the grade file exists in the current directory.
+
+
+./sendAllEmail.sh
+==========
+Calling the above command asks for the pennkey and assignment label from the user and sends an email to eachstudent with his/her grade file in the body of the email. Error-checking is performed to ensure the grade directory and all the grade files exists in the current directory. Note that permission denied might be printed to the standard output because the grade files do not have group/other write access. That does not, however, affect the functionality of the mail command. 
+
+
+./archive.sh
+==========
+Calling the above command creates a tar file of the current grade file. The user will be prompted for the current year and semester to name the file.
+
+
+Extra Credit
+==========
+All the scripts are interactive and will prompt the user to input details such as PennKey, assignment name and grades. Error checking is performed at each step to ensure that the interactive scripts work. 

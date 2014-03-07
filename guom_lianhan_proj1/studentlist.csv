@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-PENNKEY,LAST_NAME,FIRST_NAME,hw1,quiz1,quiz2,hw2,quiz3,proj1,exam1
-PENNKEY,LAST_NAME,FIRST_NAME,10,10,10,15,10,50,100
-lianhan,Loh,Lianhan,0,0,0,0,0,0,0
-guom, Guo, Jane, 0, 0, 0, 0, 0, 0, 0
-=======
 PENNKEY,LAST_NAME,FIRST_NAME,hw1,quiz1,quiz2,hw2,quiz3,proj1,exam1,DifficultAssignment
 PENNKEY,LAST_NAME,FIRST_NAME,10,10,10,15,10,50,100,1000
 tux,thepenguin,tux,10,10,9,14,10,48,99,1 
@@ -16,4 +10,3 @@ test3,last,first,0,0,0,0,0,0,0,1
 test2,last,first,0,0,0,0,0,0,0,1 
 test4,lasthaha,first,0,0,0,0,0,0,0,1 
 Hello,Yay,World,0,0,0,0,0,0,0,1
->>>>>>> 88eccbe549d1e3cd1eab5ffd6784ec07fc387590
