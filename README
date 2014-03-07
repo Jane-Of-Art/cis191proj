@@ -18,7 +18,7 @@ Calling the above command adds a new assignment to the file. The user will be pr
 
 ./addstudentgrade.sh
 ==========
-Calling the above command adds one specific student grade to the file. The user will be prompted for the student pennkey and assignment name, then the grade obtained. The user will be warned if the assignment entered is invalid. 
+Calling the above command adds one specific student grade to the file. The user will be prompted for the student pennkey and assignment name, then the grade obtained. Error-checking is performed to check if the student and the assignment exists in the .csv file. 
 
 ./getstudentgrade.sh
 ==========
