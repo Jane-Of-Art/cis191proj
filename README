@@ -53,3 +53,8 @@ Calling the above command asks for the pennkey and assignment label from the use
 ./archive.sh
 ==========
 Calling the above command creates a tar file of the current grade file. The user will be prompted for the current year and semester to name the file.
+
+
+Extra Credit
+==========
+All the scripts are interactive and will prompt the user to input details such as PennKey, assignment name and grades. Error checking is performed at each step to ensure that the interactive scripts work. 
