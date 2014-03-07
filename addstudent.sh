@@ -11,10 +11,10 @@ else
 	printf "Please input student's last name: "
 	read last
 	numcommas=$(head -n 1 studentlist.csv | fgrep -o , | wc -l)
-	printf "$pennkey, $last, $first" >> studentlist.csv
+	printf "$pennkey,$last,$first" >> studentlist.csv
 	for i in $(seq 3 $numcommas)
 	do
-		printf ", 0" >> studentlist.csv
+		printf ",0" >> studentlist.csv
 	done
 	echo "" >> studentlist.csv
 fi

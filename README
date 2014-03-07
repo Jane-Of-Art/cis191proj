@@ -29,10 +29,26 @@ Calling the above command generates a list of a student's grades as well as the 
 Calling the above command generates a list of all students and their grades out of points possible. The user does not need to input further information. 
 
 ==========
+
+./generateOneGrade.sh
 ==========
-Han's Scripts
+Calling the above command asks for the pennkey and assignment label from the user and generates one grade file for the specific assignment. Error-checking is performed to ensure the student's pennkey and assignment exists in the .csv file.
+
+
+./generateGradeDirectory.sh
 ==========
+Calling the above command asks for the assignment label from the user and creates a directory for the assignment and generates a grade file for each student for the specific assignment. Error-checking is performed to ensure the assignment label exists in the .csv file.
+
+
+./sendOneEmail.sh
 ==========
+Calling the above command asks for the pennkey and assignment label from the user and sends an email to the student with his grade file in the body of the email. Error-checking is performed to ensure the grade file exists in the current directory.
+
+
+./sendAllEmail.sh
+==========
+Calling the above command asks for the pennkey and assignment label from the user and sends an email to eachstudent with his/her grade file in the body of the email. Error-checking is performed to ensure the grade directory and all the grade files exists in the current directory. Note that permission denied might be printed to the standard output because the grade files do not have group/other write access. That does not, however, affect the functionality of the mail command. 
+
 
 ./archive.sh
 ==========
