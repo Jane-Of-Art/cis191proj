@@ -19,7 +19,7 @@ do
 		colnum=$j
 	fi
 done
-if ["$colnum" == "-1"]
+if [[ "$colnum" == "-1" ]]
 then
 	echo "You have entered an invalid assignment, grade will not be changed"
 fi
@@ -38,4 +38,4 @@ do
 	output="$output\n$temp"
 done
 echo "Grade has been changed to $score for $pennkey on $assign"
-echo -e $output > studentlist.csv
+echo -e $output
